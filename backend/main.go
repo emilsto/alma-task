@@ -25,5 +25,5 @@ func main() {
 	routes.BeverageRoute(api)
 
 	// Start the server, listen on port 5000 and use gorilla/mux as the router
-	log.Fatal(http.ListenAndServe(":5000", handler))
+	log.Fatal(http.ListenAndServe(config.GetConfig().Port, handler))
 }
