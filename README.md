@@ -27,7 +27,7 @@ Jotta projekti toimisi, tarvitset seuraavat ohjelmat/työkalut asennettuna:
 
 ## 2. env tiedostot
 
-.env tiedostot ovat gitignoressa, joten ne pitää luoda itse. Lähettämässäni sähköpostissa MONGO_URI:n arvo, joka tulee lisätä .env tiedostoon.
+.env tiedostot ovat gitignoressa, joten ne pitää luoda itse. Lähettämästäni sähköpostista löytyy MONGO_URI:n arvo, joka tulee lisätä .env tiedostoon.
 
 1. Luo .env tiedosto backendin juurihakemistoon (/backend)
 2. Lisää .env tiedostoon seuraavat rivit:
