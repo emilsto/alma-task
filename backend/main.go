@@ -14,7 +14,15 @@ import (
 func main() {
 	// Set up the router
 	r := mux.NewRouter()
-	handler := cors.Default().Handler(r)
+
+	// Set up CORS
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedMethods:   []string{"GET", "POST"},
+		AllowCredentials: true,
+	})
+
+	handler := c.Handler(r)
 
 	api := r.PathPrefix("/api/v1").Subrouter()
 
