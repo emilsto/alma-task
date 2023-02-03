@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "PORT = \":5000"\ > .env
+echo "PORT = \":5001\" > .env
 echo "MONGO_URI = \"vaihda minut!\"" >> .env
 echo "MONGO_COLLECTION = \"beverages\"" >> .env
 
-echo "PORT = \":5000"\ > tests/.env
+echo "PORT = \":5001\" > tests/.env
 echo "MONGO_URI = \"vaihda minut!\"" >> tests/.env
 echo "MONGO_COLLECTION = \"test_beverages\"" >> tests/.env
 
