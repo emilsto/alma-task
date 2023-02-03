@@ -2,8 +2,8 @@
 export default interface Beverage {
     id: number;
     name: string;
-    weight_grams: number;
+    weight: number;
     price: number;
-    roast_degree: string;
+    roast_degree: number;
     type : string;
 }

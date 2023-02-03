@@ -8,10 +8,11 @@ const ProductCard = ({ beverage }: Props) => {
     return (
         <tr>
             <td>{beverage.name}</td>
-            <td>{beverage.weight_grams}</td>
+            <td>{beverage.weight}</td>
             <td>{beverage.price}</td>
             <td>{beverage.roast_degree}</td>
-            <td>{beverage.type}</td>
+            <td>{beverage.type === 'Coffee' ? 'Kahvi' : 'Tee'
+        }</td>
         </tr>
     );
 };
