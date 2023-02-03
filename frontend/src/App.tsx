@@ -7,6 +7,7 @@ import AddProduct from "./components/AddProduct";
 // Interface
 import Beverage from "./interfaces/beverage_interface";
 
+
 const App = () => {
   const [beverages, setBeverages] = useState<Beverage[]>([]);
   const [search, setSearch] = useState<string>("");
@@ -15,7 +16,7 @@ const App = () => {
     const getBeverages = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/beverages${search ? `/${search}` : ""}`
+          `http://localhost:5001/api/v1/beverages${search ? `/${search}` : ""}`
         );
         const data = await response.json();
         setBeverages(data);
@@ -29,7 +30,7 @@ const App = () => {
 
   const addBeverage = (beverage: Beverage) => {
     const postBeverage = async () => {
-      const response = await fetch("http://localhost:5000/api/v1/beverages", {
+      const response = await fetch("http://localhost:5001/api/v1/beverages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
