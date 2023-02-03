@@ -8,8 +8,9 @@ import (
 )
 
 type Config struct {
-	Port     string
-	MongoURI string
+	Port            string
+	MongoURI        string
+	MongoCollection string
 }
 
 // Returns a Config struct with the values from the .env file
@@ -20,7 +21,8 @@ func GetConfig() Config {
 	}
 
 	return Config{
-		Port:     os.Getenv("PORT"),
-		MongoURI: os.Getenv("MONGO_URI"),
+		Port:            os.Getenv("PORT"),
+		MongoURI:        os.Getenv("MONGO_URI"),
+		MongoCollection: os.Getenv("MONGO_COLLECTION"),
 	}
 }

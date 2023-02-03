@@ -16,7 +16,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-var collection *mongo.Collection = config.GetCollection(config.Client, "beverages")
+var collection *mongo.Collection = config.GetCollection(config.Client, config.GetConfig().MongoCollection)
 
 // Get all beverages
 func GetBeverages(w http.ResponseWriter, r *http.Request) {
@@ -88,6 +88,13 @@ func SearchBeverage(w http.ResponseWriter, r *http.Request) {
 	//set and check the params
 	params := mux.Vars(r)
 	query := params["query"]
+
+	if query == "" {
+		//send all beverages
+		println("No query, sending all beverages")
+		GetBeverages(w, r)
+		return
+	}
 
 	cur, err := collection.Find(context.TODO(), bson.M{"name": bson.M{"$regex": primitive.Regex{Pattern: query, Options: "i"}}})
 	if err != nil {
