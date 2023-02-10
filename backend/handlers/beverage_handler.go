@@ -64,7 +64,14 @@ func CreateBeverage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(beverage)
+	// Validate the beverage
+	if err := beverage.Validate(); err != nil {
+		respondWithError(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Set the ID to empty
+	beverage.ID = primitive.NilObjectID
 
 	// Insert the beverage into the collection
 	if _, err := collection.InsertOne(context.TODO(), beverage); err != nil {
